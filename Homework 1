@@ -9,17 +9,22 @@ C = "+1 847.357.6375, 1 847.323.5242, +L 847.232.5323, 847.423.5342, +4 942.234.
 D = "312-54-5654, 312542565, 312 53 5343"
 
 #Main Block
+#
+#
 def main():
     print("\n=============================================")
     Problem_One()
     Problem_Two()
     Problem_Three()
     Problem_Four()
-
+#
+#
 #Write a regular expression to fit the following:
-
+#
 #1 Phone number in the format of
 #  xxx-xxx-xxxx
+#
+#
 def Problem_One():
     global A
 #   Regular Expression
