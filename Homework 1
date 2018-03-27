@@ -1,0 +1,100 @@
+import re
+
+##### Problem #####
+##### CNS-380/597 - Ryan Haley####
+
+A = "Phone Nunber: 847-576-3245, (324) 212-5476, +847.322.5643, 544-874-0978"
+B = "Phone Number: (847) 265-2562, (312) 737-4376 Name: John Bon Jovi, 847-323-3125"
+C = "+1 847.357.6375, 1 847.323.5242, +L 847.232.5323, 847.423.5342, +4 942.234.2523"
+D = "312-54-5654, 312542565, 312 53 5343"
+
+#Main Block
+def main():
+    print("\n=============================================")
+    Problem_One()
+    Problem_Two()
+    Problem_Three()
+    Problem_Four()
+
+#Write a regular expression to fit the following:
+
+#1 Phone number in the format of
+#  xxx-xxx-xxxx
+def Problem_One():
+    global A
+#   Regular Expression
+    Regex = "\d{3}\-\d{3}\-\d{4}"
+#   Find
+    Results = re.findall(Regex, A)
+#   Print Details
+    print("Problem One:\n")
+    print("String: \"%s\"" %B)
+    print("Regex: \"%s\"" %Regex)
+#   Format Results
+    print('\n'.join('{}: {}'.format(*Entry) for Entry in enumerate(Results)))
+#   Separate from Problem 2
+    print("\n=============================================")
+#
+#
+#2 Phone number in the format of
+#  (xxx) xxx-xxx
+#
+#
+def Problem_Two():
+    global B
+#   Regular Expression
+    Regex = "\(\d{3}\) \d{3}\-\d{4}"
+#   Find 
+    Results = re.findall(Regex, B)
+#   Print Details
+    print("Problem Two:\n")
+    print("String: \"%s\"" %B)
+    print("Regex: \"%s\"" %Regex)
+#   Format Results
+    print('\n'.join('{}: {}'.format(*Entry) for Entry in enumerate(Results)))
+#   Separate from Problem 3
+    print("\n=============================================")
+#
+#3 Phone number in the format of
+#  +x xxx.xxx.xxxx
+#
+#
+def Problem_Three():
+    global C
+#   Regular Expression
+    Regex = "\+\d \d{3}\.\d{3}\.\d{4}"
+#   Find
+    Results = re.findall(Regex, C)
+#   Print Details
+    print("Problem Three:\n")
+    print("String: \"%s\"" %C)
+    print("Regex: \"%s\"" %Regex)
+#   Format Results
+    print('\n'.join('{}: {}'.format(*Entry) for Entry in enumerate(Results)))
+#   Separate from Problem 4
+    print("\n=============================================")          
+#
+#
+#4 SSN in the format of
+#  xxx-xx-xxxx or xxxxxxxxx
+#
+#
+def Problem_Four():
+    global D
+#   Regular Expression
+    Regex = "\d{3}\-?\d{2}\-?\d{4}"
+#   Find
+    Results = re.findall(Regex, D)
+#   Print Details
+    print("Problem Three:\n")
+    print("String: \"%s\"" %D)
+    print("Regex: \"%s\"" %Regex)
+#   Format Results
+    print('\n'.join('{}: {}'.format(*Entry) for Entry in enumerate(Results)))
+#   End Formatting
+    print("\n=============================================")
+#
+#
+#Enter Program Through Main...
+if __name__ == "__main__":
+    main()
